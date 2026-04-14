@@ -153,3 +153,69 @@ button:hover {
         transform: translateY(0);
     }
 }
+
+/* Accordion custom */
+.accordion-custom {
+  width: min(900px, 95%);
+  margin: 0 auto 40px;
+  text-align: left;
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-custom details {
+  background: #1f1f1f;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow .2s;
+}
+
+.accordion-custom details[open] {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+
+.accordion-header {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  color: #eaeaea;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  user-select: none;
+}
+
+.accordion-header::-webkit-details-marker { display: none; } /* remove marcador padrão */
+.accordion-header::after {
+  content: '▾';
+  transition: transform .25s ease;
+  color: #9aa4ff;
+  margin-left: 12px;
+}
+details[open] .accordion-header::after {
+  transform: rotate(180deg);
+}
+
+/* animação do corpo: usar max-height para transição suave */
+.accordion-body {
+  padding: 0 20px 18px 20px;
+  color: #d6d6d6;
+  line-height: 1.6;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  animation: fadeIn .18s ease-in;
+}
+
+/* opcional: esconder padding quando fechado (melhora visual) */
+.accordion-custom details:not([open]) .accordion-body {
+  display: none;
+}
+
+/* responsividade */
+@media (max-width: 600px) {
+  .accordion-header { padding: 12px 14px; }
+  .accordion-body { padding: 0 14px 12px; }
+}
