@@ -214,6 +214,15 @@ details[open] .accordion-header::after {
   display: none;
 }
 
+.accordion-custom .accordion-body ul {
+  padding-left: 1.1rem; /* aumenta para afastar da borda — ajuste como quiser */
+  margin-top: 8px;
+}
+
+.accordion-custom .accordion-body li {
+  margin-bottom: 6px;
+}
+
 /* responsividade */
 @media (max-width: 600px) {
   .accordion-header { padding: 12px 14px; }
